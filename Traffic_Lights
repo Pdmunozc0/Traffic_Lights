@@ -1,0 +1,262 @@
+/* 
+           UNIVERSIDAD TECNICA DEL NORTE
+      FACULTAD DE INGENIERIA EN CIENCIAS APLICADAS
+           CARRERA DE TELECOMUNICACIONES
+ INTEGRANTES:
+ Donoso Fabricio
+ Farinango Wilmer
+ Muñoz Pablo
+ Quelal Rony
+ Tobar Anahi
+ Yepez Jhon
+*/ 
+
+// Definición de pines
+const int greenLED1 = 2;
+const int yellowLED1 = 3;
+const int redLED1 = 4;
+const int greenLED2 = 6;
+const int yellowLED2 = 7;
+const int redLED2 = 8;
+const int greenLED3 = 9; // Nuevo semáforo - LED verde peatón
+const int redLED3 = 10;  // Nuevo semáforo - LED rojo peatón
+const int buttonPin = 11;
+const int button2Pin = 34;
+const int button3Pin = 35;
+
+
+// Variables
+int buttonState = 0;
+int button2State = 0;
+int button3State = 0;
+
+void setup() {
+  // Configurar pines como salidas o entradas
+  pinMode(greenLED1, OUTPUT);
+  pinMode(yellowLED1, OUTPUT);
+  pinMode(redLED1, OUTPUT);
+  pinMode(greenLED2, OUTPUT);
+  pinMode(yellowLED2, OUTPUT);
+  pinMode(redLED2, OUTPUT);
+  pinMode(greenLED3, OUTPUT); // Nuevo semáforo
+  pinMode(redLED3, OUTPUT);   // Nuevo semáforo
+  pinMode(buttonPin, INPUT);
+  pinMode(button2Pin, INPUT);
+  pinMode(button3Pin, INPUT);
+}
+
+void loop() {
+  // Leer el estado del botón 1
+  buttonState = digitalRead(buttonPin);
+
+  // Leer el estado del botón 2
+  button2State = digitalRead(button2Pin);
+
+    // Leer el estado del botón 3
+  button3State = digitalRead(button3Pin);
+
+  if (buttonState == HIGH) { // Si se presiona el botón 1
+    
+    // 1er Estado
+    digitalWrite(greenLED1, HIGH);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, LOW);
+
+    
+    digitalWrite(redLED2, HIGH);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(greenLED2, LOW);
+    
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+    
+    delay(3000); // Mantener esta configuración durante 3 segundos
+
+    // 2do Estado
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, HIGH);
+    digitalWrite(redLED1, LOW);
+    
+    digitalWrite(redLED2, HIGH);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(greenLED2, LOW);
+    
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+    delay(1000); // Mantener esta configuración durante 1 segundo
+
+    // 3er Estado
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, HIGH);
+
+      
+    digitalWrite(redLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(greenLED2, HIGH);
+
+    
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, HIGH);
+    delay(4000); // Mantener esta configuración durante 4 segundo
+  
+    // 4to Estado
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, HIGH);
+    
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, HIGH);
+    digitalWrite(redLED2, LOW);
+    
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, HIGH);
+
+    delay(1000); // Mantener esta configuración durante 1 segundo
+
+    // 5to Estado
+    digitalWrite(greenLED1, HIGH);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, HIGH);
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+
+    
+    delay(2000); // Mantener esta configuración durante 2 segundos
+
+    // 6to Estado
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, LOW);
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, LOW);
+  }
+
+  if (button2State == HIGH) { // Si se presiona el botón 1
+    // 1er Estado para 2 Boton
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, HIGH);
+
+    digitalWrite(greenLED2, HIGH);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, LOW);
+    
+    
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, HIGH);
+    
+    delay(3000); // Mantener esta configuración durante 3 segundos
+
+    // 2do Estado para 2 Boton
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, HIGH);
+    
+  
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, HIGH);
+    digitalWrite(redLED2, LOW);
+    
+    
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, HIGH);
+    
+    delay(1000); // Mantener esta configuración durante 1 segundo
+
+    // 3er Estado para 2 Boton
+    digitalWrite(greenLED1, HIGH);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    
+    
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, HIGH);
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+    
+    delay(4000); // Mantener esta configuración durante 4 segundos
+
+    // 4to Estado para 2 Boton
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, HIGH);
+    digitalWrite(redLED1, LOW);
+    
+
+    
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, HIGH);
+    
+
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+
+    delay(1000); // Mantener esta configuración durante 1 segundo
+
+    // 5to Estado para 2 Boton
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, HIGH);
+    
+    
+    digitalWrite(greenLED2, HIGH);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, LOW);
+    
+    
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, HIGH);
+
+    delay(2000); // Mantener esta configuración durante 2 segundos
+
+    // 6mo Estado para 2 Boton
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(redLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, LOW);
+}
+
+  if (button3State == HIGH) {
+    digitalWrite(greenLED1, HIGH);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    
+    
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(redLED2, HIGH);
+ 
+    
+    digitalWrite(greenLED3, HIGH);
+    digitalWrite(redLED3, LOW);
+    delay(3000);
+    
+    // Apagar ambos semáforos
+    digitalWrite(greenLED1, LOW);
+    digitalWrite(redLED1, LOW);
+    digitalWrite(yellowLED1, LOW);
+    digitalWrite(greenLED2, LOW);
+    digitalWrite(redLED2, LOW);
+    digitalWrite(yellowLED2, LOW);
+    digitalWrite(greenLED3, LOW);
+    digitalWrite(redLED3, LOW);
+  }
+}
